@@ -22,55 +22,56 @@
 							</div>
 						</div>
 					</form>
-
-					<table class="table table-responsive table-bordered table-striped">
-						<thead>
-							<tr>
-								<!-- birth_year, eye_color hair_color, height, mass, skin_color -->
-								<th>Person</th>
-								<th>Birth Year</th>
-								<th>Eye Colour</th>
-								<th>Hair Colour</th>
-								<th>Skin Colour</th>
-								<th>Height</th>
-								<th>Mass</th>
-								<th>Total Films</th>
-								<th>Total Species</th>
-								<th>Total Starships</th>
-								<th>Total Vehicles</th>
-							</tr>
-						</thead>
-						<tbody>
-
-							@if($people['count'] === 0)
+					<div class="table-responsive">
+						<table class="table table-bordered table-striped">
+							<thead>
 								<tr>
-									<td colspan="12" class="text-center">
-										No results available.
-									</td>
+									<!-- birth_year, eye_color hair_color, height, mass, skin_color -->
+									<th>Person</th>
+									<th>Birth Year</th>
+									<th>Eye Colour</th>
+									<th>Hair Colour</th>
+									<th>Skin Colour</th>
+									<th>Height</th>
+									<th>Mass</th>
+									<th>Total Films</th>
+									<th>Total Species</th>
+									<th>Total Starships</th>
+									<th>Total Vehicles</th>
 								</tr>
-							@else
-								@foreach($people['results'] as $person)
+							</thead>
+							<tbody>
 
+								@if($people['count'] === 0)
 									<tr>
-										<td>{{ $person['name'] }}</td>
-										<td>{{ $person['birth_year'] }}</td>
-										<td>{{ $person['eye_color'] }}</td>
-										<td>{{ $person['hair_color'] }}</td>
-										<td>{{ $person['skin_color'] }}</td>
-										<td>{{ $person['height'] }}</td>
-										<td>{{ $person['mass'] }}</td>
-										<td>{{ count($person['films']) }}</td>
-										<td>{{ count($person['species']) }}</td>
-										<td>{{ count($person['starships']) }}</td>
-										<td>{{ count($person['vehicles']) }}</td>
-										<!-- <td>
-											<a href="{{ route('personView', $person['id']) }}" class="btn btn-md btn-primary">View</a>
-										</td> -->
+										<td colspan="12" class="text-center">
+											No results available.
+										</td>
 									</tr>
-								@endforeach
-							@endif
-						</tbody>
-					</table>
+								@else
+									@foreach($people['results'] as $person)
+
+										<tr>
+											<td>{{ $person['name'] }}</td>
+											<td>{{ $person['birth_year'] }}</td>
+											<td>{{ $person['eye_color'] }}</td>
+											<td>{{ $person['hair_color'] }}</td>
+											<td>{{ $person['skin_color'] }}</td>
+											<td>{{ $person['height'] }}</td>
+											<td>{{ $person['mass'] }}</td>
+											<td>{{ count($person['films']) }}</td>
+											<td>{{ count($person['species']) }}</td>
+											<td>{{ count($person['starships']) }}</td>
+											<td>{{ count($person['vehicles']) }}</td>
+											<!-- <td>
+												<a href="{{ route('personView', $person['id']) }}" class="btn btn-md btn-primary">View</a>
+											</td> -->
+										</tr>
+									@endforeach
+								@endif
+							</tbody>
+						</table>
+					</div>
 
 
 					<nav aria-label="People navigation">
